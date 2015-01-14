@@ -12,4 +12,21 @@ class Session
 	{
 		return $this->sessionExists('username');
 	}
+
+	function checkLoggedIn() 
+	{
+		if(!$this->isLoggedIn()) {
+			header("Location: user/login");
+		}
+	}
+
+	function setValue($key, $value)
+	{
+		$_SESSION[$key] = $value;
+	}
+
+	function getValue($key)
+	{
+		return $_SESSION[$key];
+	}
 }

@@ -9,7 +9,6 @@ class DefaultController extends BaseController
 
 	function defaultMethod() 
 	{
-		// $this->testModel = $this->loader->loadModel('testModel');
-		// var_dump($this->testModel->test());
+		$this->url->redirect('user/login');
 	}
 }

@@ -23,15 +23,21 @@ class Database
 	}
 
 	function query($sql) {
+		$this->connect();
+
 		$queryData = $this->connection->query($sql);
-		if(!$this->getAffectedRows()) return false;
-		if($queryData === true || $queryData === false) return $queryData;
+		if($queryData === true || $queryData === false) {
+			if(!$this->getAffectedRows()) return false;
+			return $queryData;
+		} 
 		$result = array();
 		if($queryData->num_rows > 0) {
 			while($rows = $queryData->fetch_assoc()) {
 				$result[] = $rows;
 			}
 		}
+
+		$this->disconnect();
 		return $result;
 	}
 

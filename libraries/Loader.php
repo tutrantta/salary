@@ -43,7 +43,8 @@ class Loader
 	{
 		if($this->loadController($controller) != null) {
 			$objTempClass = new $controller;
-			call_user_func_array(array($objTempClass, $method), $params);		
+			if(method_exists($objTempClass, $method)) call_user_func_array(array($objTempClass, $method), $params);		
+			else $this->loadView('404');
 		} else {
 			$this->loadView('404');
 		}

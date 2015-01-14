@@ -6,18 +6,23 @@ require_once '/../core/baseController.php';
 require_once '/../core/baseModel.php';
 require_once '/../libraries/database.php';
 require_once '/../helpers/session.php';
+require_once '/../helpers/url.php';
+require_once '/../helpers/validation.php';
 
 class Application
 {
 	private $url;
 	private $loader;
-	private $controller = "defaultController";
+	private $session;
+	private $controller = "default";
 	private $method = "defaultMethod";
 	private $arrParams = array();
 
 	function __construct()
 	{
 		$this->loader = new Loader;
+		$this->session = new Session;
+		$this->url = new URL;
 	}
 
 	function parseURL() 
@@ -32,7 +37,7 @@ class Application
 	function run() 
 	{
 		$this->parseURL();
-		$this->loader->callController($this->controller, $this->method, $this->arrParams);
+		$this->loader->callController($this->controller . 'Controller', $this->method, $this->arrParams);
 	}
 }
 
