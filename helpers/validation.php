@@ -25,7 +25,7 @@ class Validation
 		return empty($data);
 	}
 
-	function validateLoginInput($username, $password);
+	function validateLoginInput($username, $password)
 	{
 		define('MAXLENGTH', 30);
 		define('MINLENGTH', 4);
