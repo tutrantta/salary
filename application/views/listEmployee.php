@@ -23,18 +23,15 @@
 		       		<td style="font-weight:bold">First name</td>
 		       		<td style="font-weight:bold">Salary Calculation</td>			       				       				       		
 		       	</tr>	
-		       	<tr>
-		       		<td>1</td>
-		       		<td>Cheung </td>
-		       		<td>John</td>
-		       		<td><a href="salary.html" >Salary Calculation </a></td>			       				       				       		
-		       	</tr>	
-		       	<tr>
-		       		<td>1</td>
-		       		<td>Last name 2</td>
-		       		<td>First name 2</td>
-		       		<td><a href="salary.html" >Salary Calculation </a></td>		       				       				       		
-		       	</tr>	       			       			       	
+		       	<?php 
+		       		foreach ($arrEmployees as $key => $value) {
+		       			echo '<tr>';
+		       			echo '<td>' . $value['id'] . '</td>';
+		       			echo '<td>' . $value['lastname'] . '</td>'; 
+		       			echo '<td>' . $value['firstname'] . '</td>';
+		       			echo "<td><a href='../salary/calculate/" . $value['id'] ."'>Salary Calculation </a></td>"; //!FIXME
+		       		}
+   				?>	       			       			       	
 	       </table>
       </form>
     </div>

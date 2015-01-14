@@ -54,7 +54,9 @@ class UserController extends BaseController
 	if(!$this->session->isLoggedIn()) {
 			$this->url->redirect('user/login');
 		} else {
-			$this->loader->loadView('listEmployee');
+			$this->userModel = $this->loader->loadModel('userModel');
+			$arrEmployees = $this->userModel->getListEmployees();
+			$this->loader->loadView('listEmployee', array('arrEmployees' => $arrEmployees));
 		}
 	}
 }

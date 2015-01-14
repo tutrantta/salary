@@ -30,4 +30,9 @@ class UserModel extends BaseModel
 		$where = array('username' => $username);
 		return $this->db->select(array(), DB_TBL_USER, $where);
 	}
+
+	function getListEmployees()
+	{
+		return $this->db->select(array(), DB_TBL_USER, array());
+	}
 }
