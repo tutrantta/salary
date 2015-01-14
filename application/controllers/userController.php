@@ -15,12 +15,13 @@ class UserController extends BaseController
 	private function checkLogin()
 	{
 		extract($_POST);
+		if(!$this->validation->validateLoginInput($username, $password)) die('Invalid input');
+
 		$this->userModel = $this->loader->loadModel('userModel');
 		$this->userModel->__set('username', $this->validation->prepareData($username));
 		$this->userModel->__set('password', $this->validation->prepareData($password));
 		
 		$user = $this->userModel->getUserByUsername($this->userModel->username);
-		var_dump($user);
 		if(empty($user)) {
 			die('No user');
 		}
