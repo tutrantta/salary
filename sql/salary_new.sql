@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 14, 2015 at 03:40 AM
+-- Generation Time: Jan 14, 2015 at 11:07 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.4.27
 
@@ -61,10 +61,10 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id`, `employeetype_id`, `username`, `password`, `lastname`, `firstname`, `isaccountant`) VALUES
-(1, 1, 'hieu', 'afc8e16842061ea3dbb023bf5f08d1bc3a728429313fab0cba', 'Hieu', 'Nguyen', 1),
-(2, 1, 'long', 'fc66f021c67d064c1490a12b5a4d4d2f5167ca692a16ca12f1', 'Long', 'Tran', 0),
-(3, 2, 'hung', 'c4410f72e4467dfe7d9cd78edbb2f5786bdccaa54a6010782b', 'Hung', 'Nguyen', 0),
-(4, 3, 'lan', '094a367b026246fb64649c4f868a45d8187821d16a97314143', 'Lan', 'Pham', 0);
+(1, 1, 'hieu', 'afc8e16842061ea3dbb023bf5f08d1bc3a728429313fab0cba30f60954ff9064', 'Hieu', 'Nguyen', 1),
+(2, 1, 'long', 'fc66f021c67d064c1490a12b5a4d4d2f5167ca692a16ca12f1f3a4cda29a6fa9', 'Long', 'Tran', 0),
+(3, 2, 'hung', 'c4410f72e4467dfe7d9cd78edbb2f5786bdccaa54a6010782b2c411f988e717a', 'Hung', 'Nguyen', 0),
+(4, 3, 'lan', '094a367b026246fb64649c4f868a45d8187821d16a973141436fd9cd2acfdb4a', 'Lan', 'Pham', 0);
 
 -- --------------------------------------------------------
 
