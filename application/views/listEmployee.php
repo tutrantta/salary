@@ -26,10 +26,10 @@
 		       	<?php 
 		       		foreach ($arrEmployees as $key => $value) {
 		       			echo '<tr>';
-		       			echo '<td>' . $value['id'] . '</td>';
-		       			echo '<td>' . $value['lastname'] . '</td>'; 
-		       			echo '<td>' . $value['firstname'] . '</td>';
-		       			echo "<td><a href='../salary/calculate/" . $value['id'] ."'>Salary Calculation </a></td>"; //!FIXME
+		       			echo '<td>' . htmlspecialchars($value['id']) . '</td>';
+		       			echo '<td>' . htmlspecialchars($value['lastname']) . '</td>'; 
+		       			echo '<td>' . htmlspecialchars($value['firstname']) . '</td>';
+		       			echo "<td><a href='../salary/calculate/" . htmlspecialchars($value['id']) ."'>Salary Calculation </a></td>"; //!FIXME
 		       		}
    				?>	       			       			       	
 	       </table>

@@ -18,12 +18,12 @@
 <div id="success" style="color:blue"> Employee A has been save to DB successfully</div>
 <div id="require" style="color:red"> You have to input salalry.</div>
 <div class='container'>
-    <label for='lastname' >Last Name: </label> <label for='lastname' ><?php echo $employeeInfo['lastname'] ?></label>
+    <label for='lastname' >Last Name: </label> <label for='lastname' ><?php echo htmlspecialchars($employeeInfo['lastname']) ?></label>
    <br/>
     <span id='register_name_errorloc' class='error'></span>
 </div>
 <div class='container'>
-    <label for='firstname' >First Name:</label> <label for='firstname' ><?php echo $employeeInfo['firstname'] ?></label><br/>
+    <label for='firstname' >First Name:</label> <label for='firstname' ><?php echo htmlspecialchars($employeeInfo['firstname']) ?></label><br/>
     <span id='register_email_errorloc' class='error'></span>
 </div><br/>
 <div class='container'>
