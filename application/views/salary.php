@@ -3,53 +3,7 @@
 <head>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <title>Salary Calculation</title>
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script type="text/javascript">
-    $(function() {
-   	 $("#success").hide();
-   	 $("#require").hide();   	 
-
-    	$("#slemployeeType").change(function(){
-		  var value = $(this).val();
-			 
-		  	if(value == '1'){
-		  		 $('#hourlyemployee').hide();
-		  		 $('#saleemployee').hide();
-		  		  $('#normalemployee').show();  	
-		  	}
-		  	else if(value == '2'){
-		  		 $('#saleemployee').hide();
-		  		 $('#normalemployee').hide();
-		  		 $('#hourlyemployee').show();
-
-		  	}
-		  	else if(value == '3'){
-		  		 $('#hourlyemployee').hide();
-		  		 $('#normalemployee').hide();
-		  		  $('#saleemployee').show();
-
-		  	}
-
-
-		});
-    });		
-    
-    function save(){
-    	 $("#success").hide();
-   	 $("#require").hide(); 
-       if($("#week_salary").val() == ""){
-      	 	$("#require").show();
-       }else{
-    		$("#success").show();
-      }
-    }
-    function back(){
-    	var form = document.forms[0];
-    	form.action="listemployee.html";
-    	form.submit();	
-    }
-
-    </script>      
+    <script src="http://code.jquery.com/jquery-latest.js"></script>   
 </head>
 <body>
 <h1>Salary Calucation</h1>
@@ -64,21 +18,46 @@
 <div id="success" style="color:blue"> Employee A has been save to DB successfully</div>
 <div id="require" style="color:red"> You have to input salalry.</div>
 <div class='container'>
-    <label for='name' >Last Name: </label> <label for='name' >Cheung</label>
+    <label for='lastname' >Last Name: </label> <label for='lastname' ><?php echo $employeeInfo['lastname'] ?></label>
    <br/>
     <span id='register_name_errorloc' class='error'></span>
 </div>
 <div class='container'>
-    <label for='email' >First Name:</label> <label for='name' >John</label><br/>
+    <label for='firstname' >First Name:</label> <label for='firstname' ><?php echo $employeeInfo['firstname'] ?></label><br/>
     <span id='register_email_errorloc' class='error'></span>
 </div><br/>
-<div class='container'  >
-    <label for='username' >Employee Type*:</label><br/>
-	<select id="slemployeeType" name="myDropDown1">
-   	<option selected="selected" value="0">All</option>
-   	<option value="1">Normal Employee </option>
-   	<option value="2">Hourly Employee </option>
-  	<option value="3">Sale Employee </option>
+<div class='container'>
+    <label for='slemployeeType' >Employee Type*:</label><br/>
+	<select id="slemployeeType" name="myDropDown1" disabled="true">
+  <?php 
+      switch ($employeeInfo['employeeType']) {
+        case 'Normal Employee':
+          $option = "<option value='1' selected='selected'>Normal Employee</option>
+                      <option value='2'>Hourly Employee</option>
+                      <option value='3'>Sale Employee</option>";
+          break;
+        case 'Hourly Employee':
+          $option = "<option value='1'>Normal Employee</option>
+                      <option value='2' selected='selected'>Hourly Employee</option>
+                      <option value='3'>Sale Employee</option>";
+          break;
+        case 'Sale Employee':
+          $option = "<option value='1'>Normal Employee</option>
+                      <option value='2'>Hourly Employee</option>
+                      <option value='3' selected='selected'>Sale Employee</option>"; 
+          break;       
+
+        default:
+          $option = "";
+          break;
+      }
+      echo $option;
+   ?>
+
+   	<!-- <option selected="selected" value="0">All</option>
+    <option value="1">Normal Employee</option>
+    <option value="2">Hourly Employee</option>
+        <option value="3">Sale Employee</option> -->
 </select>
 </div><br/>
 <div id="normalemployee" class='container'>
@@ -117,5 +96,52 @@
 
 </form>
 </fieldset>
+<script>
+</script>
+
+
 </body>
+    <script type="text/javascript">
+    $(function() {
+     $("#success").hide();
+     $("#require").hide();     
+
+      $("#slemployeeType").change(function(){
+      var value = $(this).val();
+       
+        if(value == '1'){
+           $('#hourlyemployee').hide();
+           $('#saleemployee').hide();
+           $('#normalemployee').show();   
+        }
+        else if(value == '2'){
+           $('#saleemployee').hide();
+           $('#normalemployee').hide();
+           $('#hourlyemployee').show();
+
+        }
+        else if(value == '3'){
+           $('#hourlyemployee').hide();
+           $('#normalemployee').hide();
+           $('#saleemployee').show();
+        }
+    }).change();
+    });  
+    
+    function save(){
+       $("#success").hide();
+     $("#require").hide(); 
+       if($("#week_salary").val() == ""){
+          $("#require").show();
+       }else{
+        $("#success").show();
+      }
+    }
+    function back(){
+      var form = document.forms[0];
+      form.action="listemployee.html";
+      form.submit();  
+    }
+
+    </script>   
 </html>
