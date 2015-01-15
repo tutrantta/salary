@@ -25,6 +25,11 @@ class Validation
 		return empty($data);
 	}
 
+	function containsWhiteSpace($data)
+	{
+		return preg_match('/\s/',trim($data));
+	}
+
 	function validateLoginInput($username, $password)
 	{
 		define('MAXLENGTH', 30);
@@ -37,6 +42,7 @@ class Validation
 		if($this->isNull($password)) return false;
 		if(!is_string($username)) return false;
 		if(!is_string($password)) return false;
+		if($this->containsWhiteSpace($username)) return false;
 		return true;
 	}
 }

@@ -114,6 +114,18 @@ class UserValidateTest extends PHPUnit_Framework_TestCase
 		$this->assertFalse($actual);
 	}	
 
+	function testValidateLoginInputShouldReturnFalseWhenUsernameContainsWhiteSpace() {
+		//Given
+		$username = 'abab abab';
+		$password = 'good password';
+
+		//When
+		$actual = $this->validation->validateLoginInput($username, $password);
+
+		//Then
+		$this->assertFalse($actual);
+	}	
+
 	function testValidateLoginInputShouldReturnTrueWhenUsernameAndPasswordAreValid() {
 		//Given
 		$username = 'hieu';
