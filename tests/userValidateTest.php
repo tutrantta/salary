@@ -20,7 +20,7 @@ class UserValidateTest extends PHPUnit_Framework_TestCase
 	{
 		//Given
 		$username = 'abc';
-		$password = 'abcd';
+		$password = 'goodPassword';
 
 		//When
 		$actual = $this->validation->validateLoginInput($username, $password);
@@ -32,7 +32,7 @@ class UserValidateTest extends PHPUnit_Framework_TestCase
 	function testValidateLoginInputShouldReturnFalseWhenPasswordEqualsBCD()
 	{
 		//Given
-		$username = 'abcde';
+		$username = 'goodUsername';
 		$password = 'bcd';
 
 		//When
@@ -45,7 +45,7 @@ class UserValidateTest extends PHPUnit_Framework_TestCase
 	function testValidateLoginInputShouldReturnFalseWhenUsernameLengthLongerThan30() {
 		//Given
 		$username = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
-		$password = 'abcde';
+		$password = 'goodPassword';
 
 		//When
 		$actual = $this->validation->validateLoginInput($username, $password);
@@ -56,7 +56,7 @@ class UserValidateTest extends PHPUnit_Framework_TestCase
 
 	function testValidateLoginInputShouldReturnFalseWhenPasswordLengthLongerThan30() {
 		//Given
-		$username = 'abcde';
+		$username = 'goodUsername';
 		$password = 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb';
 
 		//When
@@ -69,7 +69,7 @@ class UserValidateTest extends PHPUnit_Framework_TestCase
 	function testValidateLoginInputShouldReturnFalseWhenUsernameIsNull() {
 		//Given
 		$username = null;
-		$password = 'bbbbbb';
+		$password = 'goodPassword';
 
 		//When
 		$actual = $this->validation->validateLoginInput($username, $password);
@@ -80,7 +80,7 @@ class UserValidateTest extends PHPUnit_Framework_TestCase
 
 	function testValidateLoginInputShouldReturnFalseWhenPasswordIsNull() {
 		//Given
-		$username = 'fsjlkfj';
+		$username = 'goodUsername';
 		$password = null;
 
 		//When
@@ -93,7 +93,7 @@ class UserValidateTest extends PHPUnit_Framework_TestCase
 	function testValidateLoginInputShouldReturnFalseWhenUsernameIsNumber() {
 		//Given
 		$username = 1232;
-		$password = 'bbbbbb';
+		$password = 'goodPassword';
 
 		//When
 		$actual = $this->validation->validateLoginInput($username, $password);
@@ -104,7 +104,7 @@ class UserValidateTest extends PHPUnit_Framework_TestCase
 
 	function testValidateLoginInputShouldReturnFalseWhenPasswordIsNumber() {
 		//Given
-		$username = 'abababab';
+		$username = 'goodUsername';
 		$password = 12;
 
 		//When
@@ -117,7 +117,7 @@ class UserValidateTest extends PHPUnit_Framework_TestCase
 	function testValidateLoginInputShouldReturnFalseWhenUsernameContainsWhiteSpace() {
 		//Given
 		$username = 'abab abab';
-		$password = 'good password';
+		$password = 'goodPassword';
 
 		//When
 		$actual = $this->validation->validateLoginInput($username, $password);
@@ -128,8 +128,8 @@ class UserValidateTest extends PHPUnit_Framework_TestCase
 
 	function testValidateLoginInputShouldReturnTrueWhenUsernameAndPasswordAreValid() {
 		//Given
-		$username = 'hieu';
-		$password = 'hieu';
+		$username = 'goodUsername';
+		$password = 'goodPassword';
 
 		//When
 		$actual = $this->validation->validateLoginInput($username, $password);
